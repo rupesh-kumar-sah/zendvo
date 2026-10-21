@@ -56,12 +56,7 @@ import { POST as authPost } from "./api/auth/route";
 // Wallet
 import { GET as walletTransactionsGet } from "./api/wallet/transactions/route";
 import { POST as walletRegisterPost } from "./api/wallet/register/route";
-// Dashboard
-import { GET as dashboardStatsGet } from "./api/dashboard/stats/route";
-import { GET as dashboardGiftsGet } from "./api/dashboard/gifts/route";
-// Users
-import { GET as resolveRecipientGet } from "./api/users/resolve/route";
-import { DELETE as deleteAccountDelete } from "./api/users/security/route";
+// Auth
 import { POST as forgotPasswordPost } from "./api/auth/forgot-password/route";
 import { POST as loginPost } from "./api/auth/login/route";
 import { POST as logoutPost } from "./api/auth/logout/route";
@@ -141,14 +136,7 @@ apiRouter.post(
   makeExpressHandler(verifyDeletionOtpPost),
 );
 
-// 2. Dashboard routes
-apiRouter.get("/api/dashboard/stats", makeExpressHandler(dashboardStatsGet));
-apiRouter.get("/api/dashboard/gifts", makeExpressHandler(dashboardGiftsGet));
 
-
-// 4. Users routes
-apiRouter.get("/api/users/resolve", makeExpressHandler(resolveRecipientGet));
-apiRouter.delete("/api/users/account", makeExpressHandler(deleteAccountDelete));
 
 // 5. Wallet routes
 // NOTE: these four are sensitive wallet operations (Issue #424) and are now
